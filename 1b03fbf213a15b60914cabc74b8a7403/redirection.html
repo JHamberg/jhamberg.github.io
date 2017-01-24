@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<title> CSRF example</title>
+<script type="text/javascript" id="remove">
+
+	window.onload = function () {
+		document.getElementById('redirect-form').onsubmit = function(){
+			var url = document.getElementById('address').value;
+			var constructed = url+"/redirect/jhamberg.github.io/1b03fbf213a15b60914cabc74b8a7403/update.html";
+			document.getElementById('info').innerHTML = "Please update your details here: <a href='"+constructed+"'>"+constructed+"</a>.";
+			return false;
+		}
+	}
+</script>
+</head>
+<body>
+	<form id="redirect-form">
+		<label for="address">Server address:</label>
+		<input type="text" name="address" id="address" value="http://127.0.0.1:8080">
+		<button type="submit">Generate link</button>
+	</form>
+	<p id="info"></span>
+</body>
+</html>
+
+

@@ -15,7 +15,7 @@
 			xhr.open("POST", url, true);
 			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			xhr.send(params);
-			document.getElementById('info').innerHTML = "Have a look back at the application. Nice, isn't it?";
+			document.getElementById('info').innerHTML = "Have a look back at the <a href='" + url + "/queue'> queue</a>. Nice, isn't it?";
 			return false;
 		}
 
